@@ -1,4 +1,4 @@
-package com.lucasangelo.todosimple.models;
+/*package com.lucasangelo.todosimple.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -39,4 +39,4 @@ public class TabelaTest implements Serializable {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-}
+}*/
