@@ -1,13 +1,15 @@
 package com.lucasangelo.todosimple.models;
 
+
+
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.BatchSize;
-import org.springframework.lang.NonNull;
-import org.springframework.scheduling.config.Task;
+
+//import org.springframework.scheduling.config.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +30,17 @@ public class User {
     @Column(name = "id", unique = true)
     private  Long id;
 
+    @OneToMany(mappedBy = "user")
+    private List<Task>tasks = new ArrayList<Task>();
+
+
     @Column(name = "username", length = 100, nullable = false, unique = true)
     @NotNull(groups = CreateUSER.class)
     @NotEmpty(groups = CreateUSER.class)
     @Size(groups = CreateUSER.class, min = 2 , max = 100)
     private  String username;
+
+
 
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -42,7 +50,6 @@ public class User {
     @Size(groups = {CreateUSER.class, UpdateUser.class}, min = 3, max = 60)
     private  String password;
 
-    //private List<Task>tasks = new ArrayList<Task>();
 
 
     public User() {
@@ -79,6 +86,13 @@ public class User {
         this.password = password;
     }
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     @Override
     public boolean equals(Object o) {
