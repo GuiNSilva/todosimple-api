@@ -2,13 +2,11 @@ package com.lucasangelo.todosimple.controllers;
 
 
 import com.lucasangelo.todosimple.models.Task;
-import com.lucasangelo.todosimple.models.User;
 import com.lucasangelo.todosimple.services.TaskService;
 import com.lucasangelo.todosimple.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
